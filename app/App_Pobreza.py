@@ -15,7 +15,7 @@ import os
 # 1. Carga y preparación de datos
 def load_and_prepare_data():
     # Construir ruta relativa al CSV
-    data_path = os.path.join(os.path.dirname(__file__),'DatasetWS(csv).csv')
+    data_path = os.path.join(os.path.dirname(__file__),'data','DatasetWS(csv).csv')
     print(f"Ruta que intenta cargar: {data_path}")
     # Cargar los datos
     df = pd.read_csv(
