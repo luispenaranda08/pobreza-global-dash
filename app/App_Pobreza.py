@@ -11,6 +11,7 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 import os
 
 
+
 # 1. Carga y preparación de datos
 def load_and_prepare_data():
     # Construir ruta relativa al CSV
@@ -24,6 +25,7 @@ def load_and_prepare_data():
         encoding='utf-8-sig',
         na_values=[';;;;;;;;', '']
     )
+    
     # Limpieza básica
     df_real_data = df.dropna(how='all', subset=df.columns[4:]).copy()  # <- Añadir .copy()
     
