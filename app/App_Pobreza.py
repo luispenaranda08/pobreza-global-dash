@@ -11,18 +11,18 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 
 
 # 1. Carga y preparación de datos
-    def load_and_prepare_data():
-        # Construir ruta relativa al CSV
-        data_path = os.path.join(os.path.dirname(__file__),'DatasetWS(csv).csv')
-        print(f"Ruta que intenta cargar: {data_path}")
-        # Cargar los datos
-        df = pd.read_csv(
-            data_path,
-            delimiter=';',
-            decimal=',',
-            encoding='utf-8-sig',
-            na_values=[';;;;;;;;', '']
-        )
+def load_and_prepare_data():
+    # Construir ruta relativa al CSV
+    data_path = os.path.join(os.path.dirname(__file__),'DatasetWS(csv).csv')
+    print(f"Ruta que intenta cargar: {data_path}")
+    # Cargar los datos
+    df = pd.read_csv(
+        data_path,
+        delimiter=';',
+        decimal=',',
+        encoding='utf-8-sig',
+        na_values=[';;;;;;;;', '']
+    )
     # Limpieza básica
     df_real_data = df.dropna(how='all', subset=df.columns[4:]).copy()  # <- Añadir .copy()
     
