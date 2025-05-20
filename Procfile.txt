@@ -1,1 +1,1 @@
-web: bash prestart.sh && gunicorn app.App_Pobreza:server
+web: gunicorn app.App_Pobreza:server
