@@ -8,6 +8,7 @@ from statsmodels.tsa.statespace.sarimax import SARIMAX
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from plotly.subplots import make_subplots
 from statsmodels.tsa.seasonal import seasonal_decompose
+import os
 
 
 # 1. Carga y preparación de datos
