@@ -99,7 +99,7 @@ tabs = dbc.Tabs([
 
 # Layout principal
 app.layout = dbc.Container([
-    html.H1("Dashboard del Proyecto Final: Análisis de Pobreza Mundial", className="text-center my-4"),
+    html.H1("¿La pobreza ha realmente disminuido?", className="text-center display-3 fw-bold text-warning my-4"),
     tabs,
     html.Div(id="tab-content", className="p-4")
 ], fluid=True)
@@ -111,6 +111,7 @@ intro_content = dbc.Card([
         html.Img(src='/assets/dv1.jpeg', style={'width': '250px', 'height': 'auto', 'float': 'right', 'marginLeft': '20px', 'marginBottom': '10px', 'borderRadius': '8px'}),
         html.P("Este proyecto analiza los datos de pobreza global proporcionados por el Banco Mundial, con el objetivo de identificar patrones, tendencias y diferencias entre países."),
         html.P("El análisis se centra en el porcentaje de población que vive con menos de $2.15 por día (línea de pobreza internacional)."),
+        html.P("Según el Banco Mundial, en 2019 aproximadamente 689 millones de personas vivían en pobreza extrema. La pandemia de COVID-19 revirtió parte del progreso alcanzado, aumentando la pobreza extrema global por primera vez en más de 20 años."),
         html.P("Los resultados permiten visualizar la evolución temporal, comparaciones entre regiones y el progreso en la reducción de la pobreza.")
     ])
 ])
@@ -121,22 +122,7 @@ contexto_content = dbc.Card([
         html.Img(src='/assets/dv2.jpg', style={'width': '250px', 'height': 'auto', 'float': 'right', 'marginLeft': '20px', 'marginBottom': '10px', 'borderRadius': '8px'}),
         html.P("Según el Banco Mundial, en 2019 aproximadamente 689 millones de personas vivían en pobreza extrema (menos de $1.90 al día), y cerca del 10% de la población mundial se encontraba en esta situación."),
         html.P("La pandemia de COVID-19 revirtió parte del progreso alcanzado en la última década, aumentando la pobreza extrema global por primera vez en más de 20 años. Se estima que entre 88 y 115 millones de personas cayeron en pobreza extrema en 2020."),
-        html.P("Este dashboard analiza datos desde 1960 hasta 2024 para comprender mejor estas dinámicas, con especial énfasis en:"),
-        html.Ul([
-            html.Li("Tendencias históricas regionales"),
-            html.Li("Impacto de crisis económicas globales"),
-            html.Li("Progreso hacia los Objetivos de Desarrollo Sostenible (ODS)"),
-            html.Li("Disparidades entre países desarrollados y en desarrollo")
-        ]),
-        html.P("La pobreza no solo se mide por ingresos, sino también por acceso a servicios básicos. Según datos recientes:"),
-        html.Ul([
-            html.Li("Alrededor del 26% de la población mundial carece de acceso a servicios de salud adecuados"),
-            html.Li("Cerca de 800 millones de personas no tienen acceso a electricidad"),
-            html.Li("Aproximadamente 2 mil millones carecen de servicios de saneamiento básico")
-        ]),
-        html.Img(src="https://blogs.worldbank.org/sites/default/files/2021-01/poverty_trends_graph_esp.jpg", 
-                style={'width': '100%', 'margin-top': '20px'}),
-        html.P("Fuentes: Banco Mundial (2023), PNUD (2022), UNESCO (2021)", className="text-muted small")
+        html.P("Este dashboard analiza datos desde 1960 hasta 2024 para comprender mejor estas dinámicas, con especial énfasis en:"),html.Ul([html.Li("Tendencias históricas regionales"),html.Li("Impacto de crisis económicas globales"),html.Li("Progreso hacia los Objetivos de Desarrollo Sostenible (ODS)"),html.Li("Disparidades entre países desarrollados y en desarrollo")]),html.H4("Definiciones clave para tener en cuenta:"),html.Ul([html.Li("Pobreza extrema: vivir con menos de $2.15 al día"),html.Li("Acceso a servicios básicos: salud, electricidad, saneamiento"),html.Li("Desigualdad regional y geográfica como factor limitante")]),
     ])
 ])
 
@@ -185,7 +171,8 @@ marco_content = dbc.Card([
         html.P("Teoría del crecimiento económico y su relación con reducción de pobreza"),
         html.P("Hipótesis de Kuznets sobre desigualdad y desarrollo"),
         html.H4("Estudios relacionados:"),
-        html.P("Informes anuales de pobreza y prosperidad compartida del Banco Mundial")
+        html.P("Informes anuales de pobreza y prosperidad compartida del Banco Mundial"),
+        html.H4("Referencias adicionales:"),html.Ul([html.Li("Reddy, S. G., & Minoiu, C. (2007). Has world poverty really fallen?. *Review of Income and Wealth*, 53(3), 484-502."),html.Li("Chen, S., Datt, G., & Ravallion, M. (1994). Is poverty increasing in the developing world?. *Review of Income and Wealth*, 40(4), 359-376."),html.Li("Odekon, M. (Ed.). (2015). *The SAGE encyclopedia of world poverty*. Sage publications.")]),
     ])
 ])
 
