@@ -108,7 +108,7 @@ app.layout = dbc.Container([
 intro_content = dbc.Card([
     dbc.CardBody([
         html.H2("Introducción", className="card-title"),
-        html.Img(src='/assets/dv1.jpeg', style={'width': '100%', 'marginTop': '20px'}),
+        html.Img(src='/assets/dv1.jpeg', style={'width': '250px', 'height': 'auto', 'float': 'right', 'marginLeft': '20px', 'marginBottom': '10px', 'borderRadius': '8px'}),
         html.P("Este proyecto analiza los datos de pobreza global proporcionados por el Banco Mundial, con el objetivo de identificar patrones, tendencias y diferencias entre países."),
         html.P("El análisis se centra en el porcentaje de población que vive con menos de $2.15 por día (línea de pobreza internacional)."),
         html.P("Los resultados permiten visualizar la evolución temporal, comparaciones entre regiones y el progreso en la reducción de la pobreza.")
@@ -118,7 +118,7 @@ intro_content = dbc.Card([
 contexto_content = dbc.Card([
     dbc.CardBody([
         html.H2("Contexto del Problema", className="card-title"),
-        html.Img(src='/assets/dv2.jpg', style={'width': '100%', 'marginTop': '20px'}),
+        html.Img(src='/assets/dv2.jpg', style={'width': '250px', 'height': 'auto', 'float': 'right', 'marginLeft': '20px', 'marginBottom': '10px', 'borderRadius': '8px'}),
         html.P("Según el Banco Mundial, en 2019 aproximadamente 689 millones de personas vivían en pobreza extrema (menos de $1.90 al día), y cerca del 10% de la población mundial se encontraba en esta situación."),
         html.P("La pandemia de COVID-19 revirtió parte del progreso alcanzado en la última década, aumentando la pobreza extrema global por primera vez en más de 20 años. Se estima que entre 88 y 115 millones de personas cayeron en pobreza extrema en 2020."),
         html.P("Este dashboard analiza datos desde 1960 hasta 2024 para comprender mejor estas dinámicas, con especial énfasis en:"),
@@ -175,7 +175,7 @@ objetivos_content = dbc.Card([
 marco_content = dbc.Card([
     dbc.CardBody([
         html.H2("Marco Teórico", className="card-title"),
-        html.Img(src='/assets/dv3.jpeg', style={'width': '100%', 'marginTop': '20px'}),
+        html.Img(src='/assets/dv3.jpeg', style={'width': '250px', 'height': 'auto', 'float': 'right', 'marginLeft': '20px', 'marginBottom': '10px', 'borderRadius': '8px'}),
         html.H4("Definiciones clave:"),
         html.Ul([
             html.Li("Línea de pobreza internacional: $2.15/día (PPA 2017)"),
@@ -192,7 +192,7 @@ marco_content = dbc.Card([
 metodologia_content = dbc.Card([
     dbc.CardBody([
         html.H2("Metodología", className="card-title"),
-        html.Img(src='/assets/dv4.webp', style={'width': '100%', 'marginTop': '20px'}),
+        html.Img(src='/assets/dv4.webp', style={'width': '250px', 'height': 'auto', 'float': 'right', 'marginLeft': '20px', 'marginBottom': '10px', 'borderRadius': '8px'}),
         html.H4("Fuente de datos:"),
         html.P("Banco Mundial - Indicadores de pobreza ($2.15/día) con cobertura global desde 1960 hasta 2024"),
         html.H4("Herramientas utilizadas:"),
@@ -737,7 +737,7 @@ def update_advanced_eda(selected_countries, year_range):
 conclusiones_content = dbc.Card([
     dbc.CardBody([
         html.H2("Conclusiones", className="card-title"),
-        html.Img(src='/assets/dv5.jpeg', style={'width': '100%', 'marginTop': '20px'}),
+        html.Img(src='/assets/dv5.jpeg', style={'width': '250px', 'height': 'auto', 'float': 'right', 'marginLeft': '20px', 'marginBottom': '10px', 'borderRadius': '8px'}),
         html.H4("Hallazgos principales:"),
         html.Ul([
             html.Li("La pobreza global ha mostrado una tendencia decreciente desde 1990, con una reducción promedio del 1.2% anual hasta 2019"),
