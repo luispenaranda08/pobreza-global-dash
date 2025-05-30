@@ -43,6 +43,11 @@ def load_and_prepare_data():
     count_data = df_real_data.set_index('Country Name').iloc[:, 4:].notna().sum(axis=1).copy()
     df_real_data = df_real_data.assign(**{'Years with Data': df_real_data['Country Name'].map(count_data)})  # <- Método seguro
     
+    # Reemplazar valores faltantes por la media funcional por país e indicador
+    df_long['Poverty Rate'] = df_long.groupby(['Country Name', 'Indicator Name'])['Poverty Rate'].transform(
+        lambda x: x.fillna(x.mean())
+    )
+
     return df_long, df_real_data
 
 def find_best_sarima(ts_data):
@@ -77,7 +82,7 @@ def find_best_sarima(ts_data):
 df_long, df_real_data = load_and_prepare_data()
 
 # 2. Creación de la aplicación Dash con estructura de proyecto
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 server = app.server
 
 # Definición de pestañas
@@ -628,7 +633,7 @@ def update_advanced_eda(selected_countries, year_range):
         marginal='box',
         title='Distribución de Tasas de Pobreza',
         labels={'Poverty Rate': 'Tasa de Pobreza (%)'},
-        template='plotly_white',
+        template='plotly_dark', color_discrete_sequence=['#FF8000', '#1E90FF', '#FFD700'],
         nbins=30,
         opacity=0.7
     )
@@ -646,7 +651,7 @@ def update_advanced_eda(selected_countries, year_range):
         color='Country Name',
         title='Distribución por País',
         labels={'Poverty Rate': 'Tasa de pobreza (%)', 'Country Name': 'País'},
-        template='plotly_white'
+        template='plotly_dark', color_discrete_sequence=['#FF8000', '#1E90FF', '#FFD700']
     )
     
     boxplot.update_layout(
@@ -815,10 +820,15 @@ def update_time_series(selected_countries, year_range):
         color='Country Name',
         title='Evolución de la Tasa de Pobreza',
         labels={'Poverty Rate': 'Tasa de Pobreza (%)', 'Year': 'Año'},
-        template='plotly_white'
+        template='plotly_dark', color_discrete_sequence=['#FF8000', '#1E90FF', '#FFD700']
     )
     
     fig.update_layout(
+        template='plotly_dark',
+        paper_bgcolor='#0d1117',
+        plot_bgcolor='#0d1117',
+        font=dict(color='white'),
+        colorway=['#FF8000', '#1E90FF', '#FFD700'],
         hovermode='x unified',
         yaxis_title="% de población bajo $2.15/día",
         legend_title_text='País/Región'
@@ -845,9 +855,9 @@ def update_world_map(year_range):
         hover_data={'Poverty Rate': ':.2f%', 'Country Code': False},
         projection='natural earth',
         title=f'Distribución Global de Pobreza ({latest_year})',
-        color_continuous_scale='OrRd',
+        color_continuous_scale='Oranges',
         range_color=(0, map_df['Poverty Rate'].max()),
-        template='plotly_white'
+        template='plotly_dark', color_discrete_sequence=['#FF8000', '#1E90FF', '#FFD700']
     )
     
     fig.update_layout(
@@ -882,8 +892,8 @@ def update_top_countries(year_range):
         title=f'Top 10 Países con Mayor Reducción ({start_year}-{end_year})',
         labels={'Change': 'Reducción (%)', 'Country Name': 'País'},
         color='Change',
-        color_continuous_scale='Greens',
-        template='plotly_white'
+        color_continuous_scale='Oranges',
+        template='plotly_dark', color_discrete_sequence=['#FF8000', '#1E90FF', '#FFD700']
     )
     
     fig.update_layout(
